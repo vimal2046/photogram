@@ -3,17 +3,8 @@
 $username = $_POST['email'];
 $pass = $_POST['pass'];
 
- $result = validate_credentials($username, $pass); 
-
- if($result){
-   ?>
-<h1>Hello All</h1>
-<p>Welcome !, to our Page</p>
-   <?  
- }else{
-
-
 ?>
+ 
 <main class="form-signin">
 <form method = "post" action = "login.php">
   <img class="mb-4" src="https://labs.selfmade.ninja/assets/brand/logo-text-opt.svg" alt="" height="50">
@@ -32,6 +23,3 @@ $pass = $_POST['pass'];
 </form>
 
 </main>
- <?php 
-}
- ?>
