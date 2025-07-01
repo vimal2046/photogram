@@ -8,7 +8,7 @@ if(isset($_POST['username']) and isset($_POST['email']) and isset($_POST['phone'
   $email = $_POST['email'];
   $phone = $_POST['phone'];
   $password = $_POST['password'];
-   echo "Before signup function call.<br>"; // Check if this prints
+   
   $error = signup($username,$email,$phone,$password);
 
     $signup = true;
@@ -17,9 +17,9 @@ if(isset($_POST['username']) and isset($_POST['email']) and isset($_POST['phone'
 ?>
 
 <?php
-echo "Before signup check.<br>"; // Check if this prints
+
   if($signup){
-echo "Inside \$signup block.<br>"; // Check if this prints
+
  if ($error === false){
   echo "Inside SUCCESS block.<br>"; // Check if this prints
    ?>
@@ -27,7 +27,7 @@ echo "Inside \$signup block.<br>"; // Check if this prints
   <div class="bg-light p-5 rounded mt-3">
     <h1>Hi </h1>
     <p>sucesssignu</p>
-    <p>Now u can login <a href="/login.php">here</a></p>
+    <p>Now u can login <a href="login.php">here</a></p>
   </div>
   </main>
  <?php
@@ -39,7 +39,6 @@ echo "Inside \$signup block.<br>"; // Check if this prints
     <h1>Hi </h1>
     <p>failed to sign up</p>
   <p>Error: <?php echo $error; ?></p>
-
     <p>Now u cannot login <a href="photogram/login.php">here</a></p>
     
   </div>

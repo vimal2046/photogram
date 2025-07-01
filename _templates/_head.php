@@ -22,6 +22,6 @@ if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/photogram/css/' . basename($_SERVE
 }
 ?>
 
-      <?print($_SERVER['DOCUMENT_ROOT'])?>
+      <?php print($_SERVER['DOCUMENT_ROOT'])?>
       
   </head>
