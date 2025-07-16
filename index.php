@@ -12,13 +12,13 @@ include 'libs/load.php';
 
 <main >
   
-  <? load_template('_calltoaction');?>
+  <?php load_template('_calltoaction');?>
 
-  <?load_template('_photogram');?>
+  <?php load_template('_photogram');?>
 
 </main>
 
-  <?load_template('_footer')?>
+  <?php load_template('_footer')?>
 
     <script src="/photogram/assets/dist/js/bootstrap.bundle.min.js"></script>
       
