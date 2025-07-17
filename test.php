@@ -17,7 +17,7 @@ include 'libs/load.php';
 // }else{
 //     echo "Not Passes";
 // }
-
+/*
 $mic1 = new Mic();//instancing or constructing the object
 $mic2 =  new Mic();//instancing or constructing the object
 
@@ -32,5 +32,15 @@ $mic1 ->setLight('Blue');
 
 // $mic1->setModel("hyper kundi"); // This will not work because setModel is private
 // print("Model of 1st mic is ".$mic1->model);
+*/
+
+$name = "Vimal";
+$age = 20;
+
+function printDetails($name, $age){
+    return "Name is $name and age is $age";
+}
+
+echo printDetails($name, $age);
 ?>
 
