@@ -34,13 +34,26 @@ $mic1 ->setLight('Blue');
 // print("Model of 1st mic is ".$mic1->model);
 */
 
-$name = "Vimal";
-$age = 20;
+$mic1 = new Mic();
+$mic2 = new Mic();
 
-function printDetails($name, $age){
-    return "Name is $name and age is $age";
-}
 
-echo printDetails($name, $age);
-?>
+$mic1->brand = "hydra\n";
+$mic2->brand = "disco\n";
+ 
+$mic1->light="red\n";
 
+$mic1->setLight("White\n");
+
+print($mic1->light);
+
+$mic1->setModel("Vimal model\n");
+
+print("Model of mic2 is".$mic1->getModelProperty()); //prints Vimal Model
+
+// print("-----".$mic1->model); //Cannot access private property
+
+
+$mic2->setModel("kjdhkjf\n");
+
+// print($mic2->model); //Cannot access private property
