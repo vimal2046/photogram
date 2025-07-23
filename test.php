@@ -32,4 +32,3 @@ print("Model of mic2 is ".$mic1->getModelProperty()); //prints Vimal Model
 print($mic1->getBrand()."\n");
 print($mic2->getBrand());
 
-//test comment
