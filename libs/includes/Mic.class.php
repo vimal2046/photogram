@@ -22,11 +22,13 @@ class Mic {
 
 public function __construct($brand)
 {
-  printf("Constructing object...");
+  printf("Constructing object... and brand is ".$brand."\n");
    $this->brand = ucwords($brand);
 }
 
-
+public function getBrand(){
+    return $this->brand;
+}
 public function setLight($light){
     print("-----".$light);
     $this->light = $light; // refers to the 'light' property of the current object instance
@@ -42,8 +44,7 @@ public function setModel($model){
 }
 
 public function getModelProperty(){
-  $this->getModel();
+  return $this->getModel();
 }
 }
 
-$mic3 = new Mic();
