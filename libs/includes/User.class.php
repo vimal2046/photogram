@@ -1,28 +1,10 @@
 <?php
-$includesPath = __DIR__ . '/includes/';
-foreach (glob($includesPath . '*.php') as $filename) {
-    include_once $filename;
-}
 
-
-function load_template($name){
-    include $_SERVER['DOCUMENT_ROOT']."/photogram/_templates/$name.php";
-} 
-
-//super globals -- php offering variables
-
-// function validate_credentials($username, $pass){
-   
-//     if($username == "vimalchandar2003@gmail.com" and $pass == "password"){
-//         return true;
-//     }else{
-//         return false;
-//     }
-// }
-
-function signup($user, $email, $phone, $pass)
-{
-    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // convert all MySQL errors to exceptions
+class User{
+      private $conn;    
+      public static function signup($user, $email, $phone, $pass)
+      {
+            mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // convert all MySQL errors to exceptions
 
     $error = false;
 
@@ -48,6 +30,10 @@ function signup($user, $email, $phone, $pass)
     }
 
     return $error;
+      }
+      public function __construct($username)
+      {
+        $this->conn = Database::getConnection();
+        $this->conn->query();
+      }
 }
-
-

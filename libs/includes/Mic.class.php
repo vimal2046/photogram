@@ -20,6 +20,11 @@ class Mic {
   public $light;
   public $price;
 
+
+  public static function testFunction(){
+    print("Inside of the class Mic");
+  }
+
 public function __construct($brand)
 {
   printf("Constructing object... and brand is ".$brand."\n");
@@ -46,5 +51,15 @@ public function setModel($model){
 public function getModelProperty(){
   return $this->getModel();
 }
+
+public function __destruct(){
+  print("Destructo>>>>running of brand ".$this->brand);  
 }
 
+}
+
+
+
+function testFunction(){
+  print("outside of the class Mic");
+}
