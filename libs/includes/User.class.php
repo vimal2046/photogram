@@ -16,16 +16,16 @@ class User{
         VALUES ('$user', '$email', '$phone' , '$pass', '0', '1');";
 
         if ($conn->query($sql) === TRUE) {
-            echo "✅ New record created successfully<br>";
+            echo "New record created successfully<br>";
             $error = false;
         } else {
-            echo "❌ New record not created successfully<br>"; // This won't ever run if mysqli_report is active
+            echo "New record not created successfully<br>"; // This won't ever run if mysqli_report is active
             $error = $conn->error;
         }
 
         $conn->close();
     } catch (mysqli_sql_exception $e) {
-        echo "🔥 Caught Exception: " . $e->getMessage() . "<br>";
+        echo "Caught Exception: " . $e->getMessage() . "<br>";
         $error = $e->getMessage();
     }
 
