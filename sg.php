@@ -30,8 +30,7 @@ else
     print("value for is just now assigned. and the value is $_SESSION[a]");
 }
 
- 
-?>
 
+?>
 
 </pre>

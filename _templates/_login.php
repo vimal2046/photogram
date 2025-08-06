@@ -1,51 +1,48 @@
 <?php
-session_start();
 
-$error = "";
+$login = false;
+print_r($_POST);
+if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login_id']) && isset($_POST['password']))
+{
+  $login_id = $_POST['login_id'];
+  $email = $_POST['email'];
+  $password = $_POST['password'];
 
-// Check if form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $login_id = $_POST['login_id'];
-    $password = $_POST['password'];
+  $error = User::login($login_id,$password);
 
-    // DB connection
-    $conn = new mysqli("mysql.selfmade.ninja", "vimal", "vimal2003@098", "vimal_photogram_db");
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    // Prepare SQL to check both email and username
-    $sql = "SELECT * FROM auth WHERE email = ? OR username = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $login_id, $login_id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    // If user found
-    if ($result->num_rows === 1) {
-        $user = $result->fetch_assoc();
-
-        // ✅ Verify the password using password_verify
-        if (($password === $user['password'])) {
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
-
-            // Redirect to dashboard
-            header("Location: index.php");
-            exit;
-        } else {
-            $error = "❌ Incorrect password.";
-        }
-    } else {
-        $error = "❌ User not found with this email/username.";
-    }
-
-    $stmt->close();
-    $conn->close();
+  $login = true;
 }
-?>
 
+if($login)
+{
+  if($error === false)
+  {
+    echo "Logged In Successfully.<br>";
+    ?>
+     <main class="container">
+  <div class="bg-light p-5 rounded mt-3">
+    <h1>Hi </h1>
+    <p>sucesssfully logged in</p>
+    <p>Now u can go Index <a href="index.php">here</a></p>
+  </div>
+  </main>
+    <?
+  }else{
+    ?>
+     <main class="container">
+  <div class="bg-light p-5 rounded mt-3">
+    <h1>Hi </h1>
+    <p>failed to Login</p>
+  <p>Error: <?php echo $error; ?></p>
+    <p>Try again to  <a href="signup.php">Signup</a></p>
+    
+  </div>
+  </main>
+
+  <?
+  }
+}else{
+  ?>
 <!-- ✅ HTML FORM -->
 <!DOCTYPE html>
 <html lang="en">
@@ -86,3 +83,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </body>
 </html>
+
+
+  <?
+}
+
+?>

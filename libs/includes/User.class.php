@@ -10,8 +10,7 @@ class User{
 
     try {
         $conn = Database::getConnection();
-        $conn->set_charset("utf8mb4");
-
+        $pass = md5(strrev(md5($pass)));
         $sql = "INSERT INTO `auth` (`username`, `email`, `phone`, `password`, `blocked`, `active`)
         VALUES ('$user', '$email', '$phone' , '$pass', '0', '1');";
 
@@ -30,10 +29,33 @@ class User{
     }
 
     return $error;
+    }
+
+      public static function login($login_id,$password)
+      {
+       $pass = md5(strrev(md5($password)));
+       $query = "SELECT * FROM `auth` WHERE `username` = '$login_id'";
+       $conn = Database::getConnection();
+       $result = $conn->query($query);
+       if($result ->num_rows == 1 ){
+         $row = $result->fetch_assoc();
+         if ($row['password'] == $pass){
+          return $row;
+         }
+       }else{
+        return false;
+       }
       }
-      public function __construct($username)
+
+
+
+      
+       public function __construct($username)
       {
         $this->conn = Database::getConnection();
         $this->conn->query();
       }
+       
 }
+
+     

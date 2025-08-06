@@ -19,7 +19,7 @@ class Database{
                   die("Connection Failed: ". $connection->connect_error); 
                 }
                 else{
-                    printf("New connection Established");
+                    //printf("New connection Established");
                    Database::$conn = $connection;
                    return Database::$conn;
                 }
