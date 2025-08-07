@@ -12,3 +12,7 @@ print("md5 len --------->".strlen(md5($str))."\n");
 $decoded =  base64_encode($str);
 print("base64 encoded lenght".strlen(base64_encode($str))."\n");
 print(base64_decode($decoded));
+
+
+
+print_r(hash_algos('viamlchandar'));

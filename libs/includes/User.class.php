@@ -1,6 +1,7 @@
 <?php
 
 class User{
+      private static $salt = "gmlkwelnrkjlwen42lkvn43ng";
       private $conn;    
       public static function signup($user, $email, $phone, $pass)
       {
@@ -10,7 +11,7 @@ class User{
 
     try {
         $conn = Database::getConnection();
-        $pass = md5(strrev(md5($pass)));
+        $pass = md5(strrev(md5($pass)).User::$salt);
         $sql = "INSERT INTO `auth` (`username`, `email`, `phone`, `password`, `blocked`, `active`)
         VALUES ('$user', '$email', '$phone' , '$pass', '0', '1');";
 
@@ -33,7 +34,8 @@ class User{
 
       public static function login($login_id,$password)
       {
-       $pass = md5(strrev(md5($password)));
+
+       $pass = md5(strrev(md5($password)).User::$salt);
        $query = "SELECT * FROM `auth` WHERE `username` = '$login_id'";
        $conn = Database::getConnection();
        $result = $conn->query($query);

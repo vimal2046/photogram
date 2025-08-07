@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "mysql.selfmade.ninja",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "Photogram",
+            "database": "vimal_photogram_db",
+            "username": "vimal"
+        }
+    ]
+}
