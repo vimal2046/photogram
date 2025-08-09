@@ -33,7 +33,7 @@ if($login)
   <div class="bg-light p-5 rounded mt-3">
     <h1>Hi </h1>
     <p>failed to Login</p>
-   <p>Error: <?php echo $error; ?></p>
+  <!-- <p>Error: <?php echo $error; ?></p> -->
     <p>Try again to  <a href="signup.php">Signup</a></p>
     
   </div>

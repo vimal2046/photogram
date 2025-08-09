@@ -3,8 +3,8 @@
 include 'libs/load.php';
 
 
-$username = "vimalchandar20@gmail.com";
-$password = "vimalchandar20@gmail.com";
+$username = "vimalsuji@gmail.com";
+$password = isset($_GET['password']) ? $_GET['password']  : '';
 $result  = null;
 
 if(isset($_GET['logout'])){
